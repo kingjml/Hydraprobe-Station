@@ -34,44 +34,68 @@ Public smtest
 '================== Stevens HydraProbe Declaration =================
 Public Hydraprobe_Data(36)
 Alias Hydraprobe_Data(1) = H1_Soil_Moisture
-Alias Hydraprobe_Data(2) = H1_Temp_Corrected_Soil_Conductivity
+Alias Hydraprobe_Data(2) = H1_Temp_Cor_Soil_Conductivity
 Alias Hydraprobe_Data(3) = H1_Soil_Temperature_C
 Alias Hydraprobe_Data(4) = H1_Soil_Temperature_F
 Alias Hydraprobe_Data(5) = H1_Soil_Conductivity
-Alias Hydraprobe_Data(6) = H1_Real_Dielectric_Permittivity
-Alias Hydraprobe_Data(7) = H1_Imaginary_Dielectric_Permittivity
-Alias Hydraprobe_Data(8) = H1_Corrected_Real_Dielectric_Permittivity
-Alias Hydraprobe_Data(9) = H1_Corect_ImaginaryDielectric_Permittivity
+Alias Hydraprobe_Data(6) = H1_Real_Permittivity
+Alias Hydraprobe_Data(7) = H1_Imaginary_Permittivity
+Alias Hydraprobe_Data(8) = H1_Cor_Real_Permittivity
+Alias Hydraprobe_Data(9) = H1_Cor_Imaginary_Permittivity
+
+Units H1_Soil_Moisture = wfv
+Units H1_Temp_Cor_Soil_Conductivity = S/m
+Units H1_Soil_Temperature_C = C
+Units H1_Soil_Temperature_F = F
+Units H1_Soil_Conductivity = S/m
 
 Alias Hydraprobe_Data(10) = H2_Soil_Moisture
-Alias Hydraprobe_Data(11) = H2_Temp_Corrected_Soil_Conductivity
+Alias Hydraprobe_Data(11) = H2_Temp_Cor_Soil_Conductivity
 Alias Hydraprobe_Data(12) = H2_Soil_Temperature_C
 Alias Hydraprobe_Data(13) = H2_Soil_Temperature_F
 Alias Hydraprobe_Data(14) = H2_Soil_Conductivity
-Alias Hydraprobe_Data(15) = H2_Real_Dielectric_Permittivity
-Alias Hydraprobe_Data(16) = H2_Imaginary_Dielectric_Permittivity
-Alias Hydraprobe_Data(17) = H2_Corrected_Real_Dielectric_Permittivity
-Alias Hydraprobe_Data(18) = H2_Corect_ImaginaryDielectric_Permittivity
+Alias Hydraprobe_Data(15) = H2_Real_Permittivity
+Alias Hydraprobe_Data(16) = H2_Imaginary_Permittivity
+Alias Hydraprobe_Data(17) = H2_Cor_Real_Permittivity
+Alias Hydraprobe_Data(18) = H2_Cor_Imaginary_Permittivity
+
+Units H2_Soil_Moisture = wfv
+Units H2_Temp_Cor_Soil_Conductivity = S/m
+Units H2_Soil_Temperature_C = C
+Units H2_Soil_Temperature_F = F
+Units H2_Soil_Conductivity = S/m
 
 Alias Hydraprobe_Data(19) = H3_Soil_Moisture
-Alias Hydraprobe_Data(20) = H3_Temp_Corrected_Soil_Conductivity
+Alias Hydraprobe_Data(20) = H3_Temp_Cor_Soil_Conductivity
 Alias Hydraprobe_Data(21) = H3_Soil_Temperature_C
 Alias Hydraprobe_Data(22) = H3_Soil_Temperature_F
 Alias Hydraprobe_Data(23) = H3_Soil_Conductivity
-Alias Hydraprobe_Data(24) = H3_Real_Dielectric_Permittivity
-Alias Hydraprobe_Data(25) = H3_Imaginary_Dielectric_Permittivity
-Alias Hydraprobe_Data(26) = H3_Corrected_Real_Dielectric_Permittivity
-Alias Hydraprobe_Data(27) = H3_Corect_ImaginaryDielectric_Permittivity
+Alias Hydraprobe_Data(24) = H3_Real_Permittivity
+Alias Hydraprobe_Data(25) = H3_Imaginary_Permittivity
+Alias Hydraprobe_Data(26) = H3_Cor_Real_Permittivity
+Alias Hydraprobe_Data(27) = H3_Cor_Imaginary_Permittivity
+
+Units H3_Soil_Moisture = wfv
+Units H3_Temp_Cor_Soil_Conductivity = S/m
+Units H3_Soil_Temperature_C = C
+Units H3_Soil_Temperature_F = F
+Units H3_Soil_Conductivity = S/m
 
 Alias Hydraprobe_Data(28) = H4_Soil_Moisture
-Alias Hydraprobe_Data(29) = H4_Temp_Corrected_Soil_Conductivity
+Alias Hydraprobe_Data(29) = H4_Temp_Cor_Soil_Conductivity
 Alias Hydraprobe_Data(30) = H4_Soil_Temperature_C
 Alias Hydraprobe_Data(31) = H4_Soil_Temperature_F
 Alias Hydraprobe_Data(32) = H4_Soil_Conductivity
-Alias Hydraprobe_Data(33) = H4_Real_Dielectric_Permittivity
-Alias Hydraprobe_Data(34) = H4_Imaginary_Dielectric_Permittivity
-Alias Hydraprobe_Data(35) = H4_Corrected_Real_Dielectric_Permittivity
-Alias Hydraprobe_Data(36) = H4_Corect_ImaginaryDielectric_Permittivity
+Alias Hydraprobe_Data(33) = H4_Real_Permittivity
+Alias Hydraprobe_Data(34) = H4_Imaginary_Permittivity
+Alias Hydraprobe_Data(35) = H4_Cor_Real_Permittivity
+Alias Hydraprobe_Data(36) = H4_Cor_Imaginary_Permittivity
+
+Units H4_Soil_Moisture = wfv
+Units H4_Temp_Cor_Soil_Conductivity = S/m
+Units H4_Soil_Temperature_C = C
+Units H4_Soil_Temperature_F = F
+Units H4_Soil_Conductivity = S/m
 
 '====================== Data Tables=========================
 DataTable (Main,1,-1)
