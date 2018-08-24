@@ -1,0 +1,106 @@
+'==================Credentials and Contacts====================
+' Hydroprobe Stations for TVC19
+' Probes must be addressed ahead of time 1-4
+' Code based off example in the Campbell Scientific manual
+
+'===================== Settings =============================
+' Stevens HydraProbe is set to default and returns nine measurement: HJFGOKMLN
+' H ------------------------ Soil Moisture (wfv)
+' J ------------------------ Soil Conductivity (temp. corrected)(S/m)
+' F ------------------------ Soil Temperature (Deg C)
+' G ------------------------ Soil Temperature (Fahrenheit)
+' O ------------------------ Soil Conductivity (S/m)
+' K ------------------------ Real Dielectric Permittivity
+' M ------------------------ Imaginary Dielectric Permittivity
+' L ------------------------ Real Dielectric Permittivity (temp. corrected)
+' N ------------------------ Imaginary Dielectric Permittivity (temp. Corrected)
+
+'=====================Wiring =============================
+' Red ------------------------------------> SW12V
+' Black -----------------------------------> G
+' Blue ------------------------------------> C1 (SDI12)
+'=======================Constants=========================
+'Start of Constants Customization Section
+'Program Scan Rate
+Const Scan_Rate = 30
+'====================== Declarations========================
+'Diagnostic Parameters
+Public Battery_Voltage
+Units Battery_Voltage = Volts
+Public Panel_Temperature
+Units Panel_Temperature =Deg C
+Public smtest
+
+'================== Stevens HydraProbe Declaration =================
+Public Hydraprobe_Data(36)
+Alias Hydraprobe_Data(1) = H1_Soil_Moisture
+Alias Hydraprobe_Data(2) = H1_Temp_Corrected_Soil_Conductivity
+Alias Hydraprobe_Data(3) = H1_Soil_Temperature_C
+Alias Hydraprobe_Data(4) = H1_Soil_Temperature_F
+Alias Hydraprobe_Data(5) = H1_Soil_Conductivity
+Alias Hydraprobe_Data(6) = H1_Real_Dielectric_Permittivity
+Alias Hydraprobe_Data(7) = H1_Imaginary_Dielectric_Permittivity
+Alias Hydraprobe_Data(8) = H1_Corrected_Real_Dielectric_Permittivity
+Alias Hydraprobe_Data(9) = H1_Corect_ImaginaryDielectric_Permittivity
+
+Alias Hydraprobe_Data(10) = H2_Soil_Moisture
+Alias Hydraprobe_Data(11) = H2_Temp_Corrected_Soil_Conductivity
+Alias Hydraprobe_Data(12) = H2_Soil_Temperature_C
+Alias Hydraprobe_Data(13) = H2_Soil_Temperature_F
+Alias Hydraprobe_Data(14) = H2_Soil_Conductivity
+Alias Hydraprobe_Data(15) = H2_Real_Dielectric_Permittivity
+Alias Hydraprobe_Data(16) = H2_Imaginary_Dielectric_Permittivity
+Alias Hydraprobe_Data(17) = H2_Corrected_Real_Dielectric_Permittivity
+Alias Hydraprobe_Data(18) = H2_Corect_ImaginaryDielectric_Permittivity
+
+Alias Hydraprobe_Data(19) = H3_Soil_Moisture
+Alias Hydraprobe_Data(20) = H3_Temp_Corrected_Soil_Conductivity
+Alias Hydraprobe_Data(21) = H3_Soil_Temperature_C
+Alias Hydraprobe_Data(22) = H3_Soil_Temperature_F
+Alias Hydraprobe_Data(23) = H3_Soil_Conductivity
+Alias Hydraprobe_Data(24) = H3_Real_Dielectric_Permittivity
+Alias Hydraprobe_Data(25) = H3_Imaginary_Dielectric_Permittivity
+Alias Hydraprobe_Data(26) = H3_Corrected_Real_Dielectric_Permittivity
+Alias Hydraprobe_Data(27) = H3_Corect_ImaginaryDielectric_Permittivity
+
+Alias Hydraprobe_Data(28) = H4_Soil_Moisture
+Alias Hydraprobe_Data(29) = H4_Temp_Corrected_Soil_Conductivity
+Alias Hydraprobe_Data(30) = H4_Soil_Temperature_C
+Alias Hydraprobe_Data(31) = H4_Soil_Temperature_F
+Alias Hydraprobe_Data(32) = H4_Soil_Conductivity
+Alias Hydraprobe_Data(33) = H4_Real_Dielectric_Permittivity
+Alias Hydraprobe_Data(34) = H4_Imaginary_Dielectric_Permittivity
+Alias Hydraprobe_Data(35) = H4_Corrected_Real_Dielectric_Permittivity
+Alias Hydraprobe_Data(36) = H4_Corect_ImaginaryDielectric_Permittivity
+
+'====================== Data Tables=========================
+DataTable (Main,1,-1)
+	DataInterval (0,30,Min,10)          
+	Minimum (1,Battery_Voltage,FP2,0,False)
+	Sample (1,Panel_Temperature,FP2)
+	Sample (36,Hydraprobe_Data(1),IEEE4)	
+    EndTable
+    
+'=======================Main Program======================
+BeginProg
+' power the sensor through SW12
+SW12(1)
+   '=======================Main Scan=========================
+   Scan(Scan_Rate,Sec,0,0)
+   
+   Battery(Battery_Voltage)
+   PanelTemp(Panel_Temperature,_60Hz)
+   
+   smtest=TimeIntoInterval (0,30,min) 
+   If (smtest = TRUE) Then
+      SDI12Recorder (Hydraprobe_Data(1),C1,1,"M!",1.0,0)
+      SDI12Recorder (Hydraprobe_Data(10),C1,2,"M!",1.0,0)
+      SDI12Recorder (Hydraprobe_Data(19),C1,3,"M!",1.0,0)
+      SDI12Recorder (Hydraprobe_Data(28),C1,4,"M!",1.0,0)
+   EndIf
+  
+   CallTable Main
+		
+   NextScan
+	
+EndProg
